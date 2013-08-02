@@ -45,6 +45,8 @@ public class RequestBuilder {
   private PicassoBitmapOptions getOptions() {
     if (options == null) {
       options = new PicassoBitmapOptions();
+      // dimsuz: changed to not be default ARGB_8888, which takes A LOT of memory from us
+      options.inPreferredConfig = Bitmap.Config.RGB_565;
     }
     return options;
   }
