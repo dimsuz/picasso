@@ -17,7 +17,7 @@ import static android.graphics.Color.WHITE;
 import static com.squareup.picasso.Request.LoadedFrom;
 import static com.squareup.picasso.Request.LoadedFrom.MEMORY;
 
-final class PicassoDrawable extends Drawable {
+public final class PicassoDrawable extends Drawable {
   // Only accessed from main thread.
   private static final Paint DEBUG_PAINT = new Paint();
 
@@ -287,5 +287,9 @@ final class PicassoDrawable extends Drawable {
     canvas.drawRect(0, -9 * density, 6.5f * density, 9 * density, DEBUG_PAINT);
 
     canvas.restore();
+  }
+
+  public BitmapDrawable getBitmapDrawable() {
+      return bitmapDrawable;
   }
 }
