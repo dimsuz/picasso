@@ -374,7 +374,7 @@ public class Picasso {
             }
           }
         }
-        request.loadedFrom = response.cached ? Request.LoadedFrom.DISK : Request.LoadedFrom.NETWORK;
+        request.loadedFrom = response != null && response.cached ? Request.LoadedFrom.DISK : Request.LoadedFrom.NETWORK;
       }
     }
 
