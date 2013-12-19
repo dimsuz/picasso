@@ -8,6 +8,7 @@ class PicassoBitmapOptions extends BitmapFactory.Options {
   boolean deferredResize;
   boolean centerCrop;
   boolean centerInside;
+  boolean centerInsideScaleUpAllowed; // added by dimsuz
 
   float targetScaleX;
   float targetScaleY;

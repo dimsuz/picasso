@@ -454,7 +454,9 @@ public class Picasso {
         float widthRatio = targetWidth / (float) inWidth;
         float heightRatio = targetHeight / (float) inHeight;
         float scale = widthRatio < heightRatio ? widthRatio : heightRatio;
-        matrix.preScale(scale, scale);
+        if(options.centerInsideScaleUpAllowed || scale < 1f) {
+          matrix.preScale(scale, scale);
+        }
       } else if (targetWidth != 0 && targetHeight != 0 //
           && (targetWidth != inWidth || targetHeight != inHeight)) {
         // If an explicit target size has been specified and they do not match the results bounds,

@@ -179,8 +179,11 @@ public class RequestBuilder {
   /**
    * Centers an image inside of the bounds specified by {@link #resize(int, int)}. This scales
    * the image so that both dimensions are equal to or less than the requested bounds.
+   *
+   * @param isScaleUpAllowed whether image is allowed to be stretched when it's size is smaller than
+   *                         bounds specified by {@link #resize(int, int)}
    */
-  public RequestBuilder centerInside() {
+  public RequestBuilder centerInside(boolean isScaleUpAllowed) {
     PicassoBitmapOptions options = getOptions();
 
     if (options.targetWidth == 0 || options.targetHeight == 0) {
@@ -191,6 +194,7 @@ public class RequestBuilder {
     }
 
     options.centerInside = true;
+    options.centerInsideScaleUpAllowed = isScaleUpAllowed;
     return this;
   }
 
